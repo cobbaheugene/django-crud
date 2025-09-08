@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charges Management System</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="{% static 'your-path-to-fontawesome/js/fontawesome.js' %}"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charges Management System</title>
+  {% load static %}
+  <!-- add ?v=1 while testing to bust cache -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
 </head>
 <body>
-    <div class="container">
-        <h1>Charges Management System</h1>
-        
-        <!-- Add/Edit Form -->
-        <div class="form-container">
-            <h2 id="form-title">Add New Charge</h2>
-            <form id="charge-form">
-                <input type="hidden" id="charge-id">
-                <div class="form-group">
-                    <label for="name">Charge Name:</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="amount">Amount (GHC):</label>
-                    <input type="number" id="amount" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea id="description" rows="3"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" id="submit-btn">Add Charge</button>
-                    <button type="button" id="cancel-btn" style="display:none;">Cancel</button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Charges List -->
-        <div class="charges-container">
-            <h2>All Charges</h2>
-            <div id="charges-list">
-                <!-- Charges will be loaded here -->
-            </div>
-        </div>
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Effortless Charge Management</h1>
+      <p>Track, organize, and manage all your charges beautifully in one place.</p>
     </div>
+  </header>
 
-    <script src="{% static 'js/script.js' %}"></script>
+  <main class="container">
+    <!-- FORM SECTION -->
+    <section class="form-section">
+      <div class="form-container">
+        <div class="form-content">
+          <div class="form-card">
+            <h2 id="form-title">Add New Charge</h2>
+            <form id="charge-form" class="charge-form">
+              <input type="hidden" id="charge-id">
+              <div class="form-group">
+                <label for="name">Charge Name:</label>
+                <input type="text" id="name" required>
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount (GHC):</label>
+                <input type="number" id="amount" step="0.01" required>
+              </div>
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" rows="3"></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" id="submit-btn">Add Charge</button>
+                <button type="button" id="cancel-btn" style="display:none;">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- IMAGE & TEXT PLACEHOLDER -->
+          <div class="form-side">
+            <img src="{% static 'images/ragar.png' %}" alt="Charges Illustration">
+            <p>Manage your charges efficiently with our easy-to-use platform. Add, edit, and track all charges in one place!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARGES DISPLAY SECTION -->
+    <section class="charges-section">
+      <h2>All Charges</h2>
+      <div id="charges-list" class="charges-grid">
+        <!-- cards injected here -->
+      </div>
+    </section>
+  </main>
+
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
