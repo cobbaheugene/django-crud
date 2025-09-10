@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Display charges in the list
+    // Display charges in the list - UPDATED VERSION
     function displayCharges(charges) {
         if (charges.length === 0) {
             chargesList.innerHTML = '<div class="no-charges">No charges found. Add your first charge above!</div>';
@@ -52,21 +52,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         chargesList.innerHTML = charges.map(charge => `
-            <div class="charge-item">
-                <div class="charge-info">
+            <div class="charge-card">
+                <div class="charge-header">
                     <h3>${charge.name}</h3>
+                </div>
+                <div class="charge-body">
                     <p><strong>Description:</strong> ${charge.description || 'No description'}</p>
                     <p><strong>Created:</strong> ${charge.date_created}</p>
                 </div>
                 <div class="charge-amount">GHC ${charge.amount}</div>
                 <div class="charge-actions">
-                    <button class="edit-btn" onclick="editCharge(${charge.id})">Edit</button>
-                    <button class="delete-btn" onclick="deleteCharge(${charge.id})">Delete</button>
+                    <button class="edit-btn" onclick="editCharge(${charge.id})">EDIT</button>
+                    <button class="delete-btn" onclick="deleteCharge(${charge.id})">DELETE</button>
                 </div>
             </div>
         `).join('');
     }
-
+    
     // Create new charge
     function createCharge(data) {
         fetch('/api/charge_management/create/', {

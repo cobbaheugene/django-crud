@@ -13,9 +13,8 @@ body {
 /* === Hero Banner === */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #4f46e5, #06b6d4, #ec4899);
+  background: #8B93FF;
   background-size: 300% 300%;
-  animation: gradientShift 18s ease infinite;
   color: #fff;
   padding: 5.5rem 1rem 3rem;
   text-align: center;
@@ -39,35 +38,90 @@ body {
   padding: 0 1rem;
 }
 
-/* === Form Section (Side-by-side layout) === */
-.form-container { padding-top: 1rem; }
+/* === Unified Form Section === */
+.form-section {
+  margin-top: 2rem;
+  padding: 4rem 2rem; /* Increased padding */
+  background: #FFF7FC;
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .form-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  margin-top: 1rem;
+  gap: 3rem; 
+  align-items: stretch; 
 }
 
+/* === Left Side - Form Card === */
 .form-card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.form-card h2 { margin-bottom: 1.25rem; font-size: 1.6rem; color: #0f172a; }
+.form-card h2 { 
+  margin-bottom: 2rem; 
+  font-size: 1.8rem; 
+  color: #0f172a;
+  font-weight: 800;
+  text-align: center;
+}
 
-.form-side { text-align: center; padding: 1rem; }
+/* === Right Side - Image Card === */
+.form-side { 
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2.5rem; 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-side img {
   width: 100%;
-  max-width: 320px;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  display: inline-block;
+  max-width: 350px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+  transition: transform 0.3s ease;
 }
-.form-side p { font-size: 1.05rem; color: #475569; }
+
+.form-side img:hover {
+  transform: scale(1.02);
+}
+
+.form-side p { 
+  font-size: 1.1rem;
+  color: #475569; 
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 auto;
+  font-weight: 500;
+  text-align: center;
+}
+
 
 /* === Form Inputs === */
 .form-group { margin-bottom: 1rem; text-align: left; }
@@ -105,7 +159,7 @@ button {
   text-transform: uppercase;
 }
 button[type="submit"] {
-  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  background: #5755FE;
   color: #fff;
   box-shadow: 0 6px 18px rgba(79,70,229,0.18);
 }
@@ -113,55 +167,244 @@ button[type="submit"]:hover { transform: translateY(-3px); }
 #cancel-btn { background: #e6eefc; color:#0f172a; }
 #cancel-btn:hover { transform: translateY(-2px); }
 
-/* === Charges Section (Enhanced) === */
+/* === Charges Section (Enhanced for 3 per row) === */
 .charges-section {
   margin-top: 3.5rem;
   padding: 2.5rem 1rem;
-  background: linear-gradient(135deg, #f8fdff, #fff8fb, #faf8ff);
+  background: #FFF7FC;
   border-radius: 16px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.06);
 }
+
 .charges-section h2 {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
   font-weight: 900;
   color: #1e293b;
 }
 
+/* Grid for exactly 3 columns */
 .charges-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* CARD */
+/* CARD STYLING */
 .charge-card {
   background: #fff;
-  border-radius: 14px;
-  padding: 1.25rem;
-  box-shadow: 0 8px 24px rgba(6, 7, 14, 0.04);
-  transition: transform .25s ease, box-shadow .25s ease;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
 }
-.charge-card:hover { transform: translateY(-8px); box-shadow: 0 14px 40px rgba(6,7,14,0.08); }
 
-.charge-header h3 { font-size: 1.15rem; font-weight: 800; color:#0f172a; margin-bottom:0.5rem; }
-.charge-body p { font-size: 0.95rem; color: #475569; margin-bottom:0.75rem; }
-.charge-amount { font-size: 1.35rem; font-weight: 800; color: #16a34a; margin-bottom:0.75rem; }
+.charge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+}
 
-.charge-actions { display:flex; justify-content:flex-end; gap:0.5rem; }
-.edit-btn { background:#f59e0b; color:#fff; padding:0.5rem 0.9rem; border-radius:8px; border:none; }
-.edit-btn:hover { background:#d97706; }
-.delete-btn { background:#ef4444; color:#fff; padding:0.5rem 0.9rem; border-radius:8px; border:none; }
-.delete-btn:hover { background:#c71f1f; }
+.charge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-color: #e2e8f0;
+}
 
-/* no-charges */
-.no-charges { text-align:center; font-style:italic; color:#94a3b8; margin-top:1rem; }
+.charge-header {
+  margin-bottom: 1rem;
+}
+
+.charge-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.charge-body {
+  margin-bottom: 1.25rem;
+}
+
+.charge-body p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.charge-body strong {
+  color: #334155;
+  font-weight: 600;
+}
+
+.charge-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #16a34a;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(22, 163, 74, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.charge-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.edit-btn, .delete-btn {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-btn {
+  background: #5755FE;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+.delete-btn {
+  background: #5755FE;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #f84dbc;
+  transform: translateY(-1px);
+}
+
+/* No charges message */
+.no-charges {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-style: italic;
+  color: #94a3b8;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+  .charges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .charges-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .charges-section {
+    padding: 2rem 1rem;
+  }
+  
+  .charge-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .charge-actions {
+    flex-direction: column;
+  }
+  
+  .edit-btn, .delete-btn {
+    flex: none;
+  }
+}
 
 /* === Responsive === */
 @media (max-width: 900px) {
-  .form-content { grid-template-columns: 1fr; text-align:center; }
-  .form-side img { max-width: 240px; }
   .hero h1 { font-size: 1.9rem; }
   .hero p { font-size: 0.95rem; }
+}
+
+/* === Responsive Design === */
+@media (max-width: 900px) {
+  .form-content { 
+    grid-template-columns: 1fr; 
+    gap: 3rem;
+  }
+  
+  .form-side {
+    order: -1; 
+    padding: 1.5rem;
+  }
+  
+  .form-side img { 
+    max-width: 320px;
+  }
+  
+  .form-side p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  .form-card h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-section {
+    padding: 2rem 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-content {
+    gap: 2rem;
+  }
+  
+  .form-side {
+    padding: 1rem;
+  }
+  
+  .form-side img {
+    max-width: 280px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  button {
+    padding: 0.9rem 1.5rem;
+  }
+  
+  .form-section {
+    padding: 1.5rem 0.75rem;
+  }
 }
